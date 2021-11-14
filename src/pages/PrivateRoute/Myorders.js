@@ -8,7 +8,7 @@ const Myorders = () => {
                               .then(data => setBookings(data))
           }, []);
           const handleDelete = id => {
-                    const url = `http://localhost:5000/watch//${id}`;
+                    const url = `http://localhost:5000/watch/${id}`;
                     fetch(url, {
                               method: 'DELETE'
                     })

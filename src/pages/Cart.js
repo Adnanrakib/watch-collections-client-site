@@ -18,7 +18,7 @@ const Cart = () => {
   const onSubmit = data => {
     console.log(data);
 
-    axios.post('https://haunted-scarecrow-80788.herokuapp.com/bookings', data)
+    axios.post('http://localhost:5000/watch', data)
 
       .then(res => {
         if (res.data.insertedId) {
@@ -48,7 +48,7 @@ const Cart = () => {
           <input type="text" {...register("name",)} placeholder="Name" />
 
           <textarea {...register("Email",)} placeholder="Email" />
-          <input {...register("Password", { required: true, })}
+          <input {...register("Password", { required: true, maxLength: 20  })}
             placeholder="Password" />
           <input type="Destination" {...register("Place",)} placeholder="Destination" />
           <button className="button">Book Now

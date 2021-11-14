@@ -9,7 +9,7 @@ const Booking = () => {
     console.log(data);
 
 
-    axios.post('https://haunted-scarecrow-80788.herokuapp.com/bookings', data)
+    axios.post('http://localhost:5000/watch', data)
       .then(res => {
         console.log(res);
         if (res.data.insertedId) {
@@ -24,8 +24,9 @@ const Booking = () => {
 
 
   return (
-    <div className="booking">
-      <h1>Booking Your Service</h1>
+    <div className="row booking">
+      <div className="col-lg-6 mx-auto">
+      <h1 className="text-secondary">Add  Your Collection</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input type="name" {...register("name",)} placeholder="Name" />
 
@@ -35,7 +36,7 @@ const Booking = () => {
         <input type="img url" {...register("img",)} placeholder="Image url" />
         <input className="button" type="submit" />
       </form>
-
+      </div>
     </div>
   );
 };
