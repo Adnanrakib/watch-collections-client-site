@@ -26,7 +26,7 @@ const Services = () => {
                                     {/* <h4>{childsSingle.price}</h4> */}
                                     <h6> {childsSingle.desc}</h6>
                                     <Link to="/home">
-                                        <button className="btn btn-secondary">Purchase Now
+                                        <button className="btn btn-secondary">Order Now
 
                                         </button>
                                     </Link>
