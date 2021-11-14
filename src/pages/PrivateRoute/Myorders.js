@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 const Myorders = () => {
           const [bookings, setBookings] = useState([]);
           useEffect(() => {
-                    fetch('https://haunted-scarecrow-80788.herokuapp.com/bookings')
+                    fetch('http://localhost:5000/watch/')
                               .then(res => res.json())
                               .then(data => setBookings(data))
           }, []);
           const handleDelete = id => {
-                    const url = `https://haunted-scarecrow-80788.herokuapp.com/bookings/${id}`;
+                    const url = `http://localhost:5000/watch//${id}`;
                     fetch(url, {
                               method: 'DELETE'
                     })
@@ -30,8 +30,10 @@ const Myorders = () => {
                                         bookings?.map(cart => <div className="bg-info" key={cart._id} 
                                         >
                                                   
-                                                  <h3>{cart.name}</h3>
+                                                 
+                                                 
                                                   <h3>{cart.email}</h3>
+                                                  <h3>{cart.name}</h3>
                                                   <h3>{cart.price}</h3>
                                                   <button className="btn-warning" onClick={() => handleDelete(cart._id)}>Cancel</button>
                                         </div>)

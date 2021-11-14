@@ -48,7 +48,7 @@ const Cart = () => {
           <input type="text" {...register("name",)} placeholder="Name" />
 
           <textarea {...register("Email",)} placeholder="Email" />
-          <input {...register("Password", { required: true, maxLength: 20 })}
+          <input {...register("Password", { required: true, })}
             placeholder="Password" />
           <input type="Destination" {...register("Place",)} placeholder="Destination" />
           <button className="button">Book Now

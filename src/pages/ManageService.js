@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 const ManageService = () => {
           const [bookings, setBookings] = useState([]);
           useEffect(() => {
-                    fetch('https://haunted-scarecrow-80788.herokuapp.com/bookings')
+                    
+                    fetch('http://localhost:5000/watch/')
                               .then(res => res.json())
                               .then(data => setBookings(data))
           }, []);
           const handleDelete = id => {
-                    const url = `https://haunted-scarecrow-80788.herokuapp.com/bookings/${id}`;
+                    const url = `http://localhost:5000/watch/${id}`;
                     fetch(url, {
                               method: 'DELETE'
                     })

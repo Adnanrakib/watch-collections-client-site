@@ -1,26 +1,36 @@
 import React from 'react';
+import { useState } from 'react';
 
 const MakeAdmin = () => {
-          return (
-                    <div>
-
-<form className="form">
-      <h1 className="login">PLEASE LOGIN</h1>
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="mail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-    {/* <input type="mail" class="from-control" id="exampleInputEmail1" aria-describedby="emailHelp"> */}
-    <div id="emailHelp" class="form-text"></div>
-  
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"/>
-    {/* <input type="password" class="form-control" id="exampleInputPassword1"> */}
-  </div>
-  <button>Add Domain</button>
-</form>
-                             
-                    </div>
-          );
+  const [email, setEmail] = useState('')
+  const handleOnBlur = e =>{
+    e.setEmail(e.target.value)
+  }
+  const handleAdminSubmit = e=>{
+    const user ={email};
+    fetch('http://localhost:5000/users/',{
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      console.log();
+    })
+    e.preventDefault()
+  }
+  return (
+    <div>
+      <h2>Make an Admin</h2>
+      <form onSubmit={handleAdminSubmit}>
+      <h3>Email<input type="Email" onBlur={handleOnBlur} class="email" /></h3>
+     
+  <button type="submit" className="btn-primary">Make Admin</button>
+      </form>
+    </div>
+  );
 };
 
 export default MakeAdmin;
